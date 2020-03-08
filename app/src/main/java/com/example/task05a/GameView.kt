@@ -2,7 +2,6 @@ package com.example.task05a
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
@@ -23,7 +22,7 @@ class GameView: View {
 
     private var mGridPaint: Paint
     private var mNoPlayerPaint: Paint
-
+    
     init {
         mGridPaint = Paint().apply {
             style = Paint.Style.FILL
