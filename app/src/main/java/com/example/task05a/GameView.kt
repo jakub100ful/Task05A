@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 
 import com.example.logic.StudentGame
@@ -26,6 +28,9 @@ class GameView: View {
     private var mNoPlayerPaint: Paint
     private var mPlayer1Paint: Paint
     private var mPlayer2Paint: Paint
+
+
+    private val myGestureDetector = GestureDetector(context, myGestureListener())
     
     init {
         mGridPaint = Paint().apply {
@@ -92,5 +97,29 @@ class GameView: View {
             }
         }
     }
+
+    override fun onTouchEvent(ev: MotionEvent): Boolean {
+        return myGestureDetector.onTouchEvent(ev) || super.onTouchEvent(ev)
+    }
+
+    inner class myGestureListener: GestureDetector.SimpleOnGestureListener() {
+        override fun onDown(ev: MotionEvent): Boolean {
+            return true
+        }
+
+        override fun onSingleTapUp(ev: MotionEvent): Boolean {
+            val colWidth = width/colCount
+            var colTouch = ev.x.toInt()/colWidth
+            mStudentGame.playToken(colTouch, 1)
+            invalidate()
+            return true
+        }
+    }
+
+    companion object {
+        const val LOGTAG = "MyTask"
+    }
+
+
 }
 
