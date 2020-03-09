@@ -1,8 +1,6 @@
 package com.example.library
 
-class GameInterface {
-
-    interface GameInterface {
+interface GameInterface {
 
         val mColumns: Int
         val mRows: Int
@@ -16,4 +14,4 @@ class GameInterface {
         // Changes the contents of the game grid at a specified row and column
         fun playToken(column: Int, row: Int): Boolean
     }
-}
+

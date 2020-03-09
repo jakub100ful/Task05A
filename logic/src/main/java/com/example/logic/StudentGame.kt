@@ -2,7 +2,7 @@ package com.example.logic
 import com.example.library.GameInterface
 import java.lang.IllegalArgumentException
 
-class StudentGame (columns: Int = 7, rows: Int = 10) : GameInterface{
+class StudentGame (columns: Int = 7, rows: Int = 10) : GameInterface {
     override val mColumns: Int = columns
     override val mRows: Int = rows
     // Set up two-dimensional array of integer, of size columns x rows
@@ -29,6 +29,6 @@ class StudentGame (columns: Int = 7, rows: Int = 10) : GameInterface{
                 return true
             }
         }
-        return false // ilegal move
+        return false // illegal move
     }
 }
