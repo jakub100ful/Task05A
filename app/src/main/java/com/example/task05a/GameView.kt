@@ -108,9 +108,14 @@ class GameView: View {
         }
 
         override fun onSingleTapUp(ev: MotionEvent): Boolean {
+
+            var turn = mStudentGame.playerTurn
+
             val colWidth = width/colCount
             var colTouch = ev.x.toInt()/colWidth
-            mStudentGame.playToken(colTouch, 1)
+
+            mStudentGame.playToken(colTouch, turn)
+            // Refresh the screen display
             invalidate()
             return true
         }

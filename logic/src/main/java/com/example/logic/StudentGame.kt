@@ -30,6 +30,11 @@ class StudentGame (columns: Int = 7, rows: Int = 10) : GameInterface {
             throw IllegalArgumentException("Player numbers start with 1")
         }
 
+        if (playerTurn == 1)
+            playerTurn = 2
+        else
+            playerTurn = 1
+
         for (row in 0 until mRows) {
             if (mData[column][row] === 0) {
                 mData[column][row] = player
